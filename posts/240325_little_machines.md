@@ -1,7 +1,7 @@
 ---
 title: Little Machines
 published_at: 2024-03-25
-snippet: ... and party invitations
+snippet: ... and party invites
 disable_html_sanitization: true
 allow_math: true
 ---
@@ -10,7 +10,7 @@ allow_math: true
 
 > *X: Where do you place the proletarian, then?*
 
-> ... In a world in which there has emerged, in a way that actually does exist, that is a presence in the world, not the thought of science, but science objectified in some way, I mean these things entirely forged by science, simply these little things, gadgets and things, which at the moment occupy the same space as us - **in a world in which this emergence has taken place, can know-how at the level of manual labor carry enough weight to be a subversive factor?**  This is how, for me, the question arises.
+> ... In a world in which there has emerged, in a way that actually does exist, that is a presence in the world, not the thought of science, but science objectified in some way, I mean these things entirely forged by science, ... gadgets and things, which at the moment occupy the same space as us - **in a world in which this emergence has taken place, can know-how at the level of manual labor carry enough weight to be a subversive factor?**  This is how, for me, the question arises.
 
 > What do you do with all I tell you?  **You record it on a little machine, and afterward, you give parties which you hand out invitations to - that's a Lacan tape for you.**[^1]
 
