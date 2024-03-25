@@ -11,14 +11,18 @@ export const handler: Handlers<Post[]> = {
 export default function BlogIndexPage(props: PageProps<Post[]>) {
   const posts = props.data;
   return (
-    <main class="max-w-screen-md px-4 pt-16 mx-auto">
-      <script src="scripts/falling_bg.js" type="module"></script>
-      <h1 class="text-5xl font-bold">Love Continuous,</h1>
-      <h1 class="text-5xl font-bold">Love Discrete</h1>
-      <div class="mt-8">
-        {posts.map ((post) => <PostCard post={ post } />)}
-      </div>
-    </main>
+    <>
+      <head>
+        <script src="scripts/falling_bg.js" type="module"></script>
+      </head>
+      <main class="max-w-screen-md px-4 pt-16 mx-auto">      
+        <h1 class="text-5xl font-bold">Love Continuous,</h1>
+        <h1 class="text-5xl font-bold">Love Discrete</h1>
+        <div class="mt-8">
+          {posts.map ((post) => <PostCard post={ post } />)}
+        </div>
+      </main>
+    </>
   );
 }
 
