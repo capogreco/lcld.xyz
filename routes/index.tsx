@@ -13,17 +13,29 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
   return (
     <>
       <head>
+
+        <title>Love Continuous, Love Discrete</title>
+
+        <meta name="description" content="blog" />
+        <meta property="og:title" content="Love Continuous, Love Discrete" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="blog" />
+
         <link rel="modulepreload" href="scripts/falling_bg.js" />
         <link rel="modulepreload" href="scripts/faller.js" />
         <script src="scripts/falling_bg.js" type="module"></script>
+
       </head>
       <main class="max-w-screen-md px-4 pt-16 mx-auto">      
+
         <h1 class="text-5xl font-bold">Love Continuous,</h1>
         <h1 class="text-5xl font-bold">Love Discrete</h1>
         <h2 class="mt-4 text-2xl text-black">by Thomas Capogreco</h2>
+
         <div class="mt-8">
-          {posts.map ((post) => <PostCard post={ post } />)}
+          { posts.map (post => <PostCard post={ post } />) }
         </div>
+
       </main>
     </>
   );
