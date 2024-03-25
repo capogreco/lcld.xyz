@@ -1,5 +1,8 @@
 import { Faller } from './faller.js'
 
+let bg_h = Math.random () * 360
+document.body.style.backgroundColor = `hsl(${ bg_h }, 100%, 66%)`
+
 const cnv  = document.createElement (`canvas`)
 
 const size_to_window = c => {
@@ -18,10 +21,8 @@ cnv.style.zIndex   = `-1`
 document.body.appendChild (cnv)
 
 const ctx = cnv.getContext (`2d`)
-// ctx.imageSmoothingEnabled = true
+ctx.imageSmoothingEnabled = true
 
-// const rand_col = () => `hsl(${Math.random () * 360}, 100%, 66%)`
-let bg_h = Math.random () * 360
 let frame_count = 0
 
 const fallers = []
