@@ -13,6 +13,7 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
   return (
     <>
       <head>
+        <link rel="modulepreload" href="scripts/faller.js" />
         <script src="scripts/falling_bg.js" type="module"></script>
       </head>
       <main class="max-w-screen-md px-4 pt-16 mx-auto">      
