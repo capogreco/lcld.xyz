@@ -45,19 +45,19 @@ function PostCard(props: { post: Post }) {
   const { post } = props;
   return (
     <div class="py-8">
-      <a class="sm:col-span-2" href={`/${post.slug}`}>
+      <a class="sm:col-span-2" href={ `/${post.slug}` }>
         <h3 class="text(3xl black) font-bold">
-          {post.title}
+          { post.title }
         </h3>
         <time class="text-black">
-          {new Date(post.publishedAt).toLocaleDateString("en-us", {
+          { new Date (post.publishedAt).toLocaleDateString ("en-us", {
             year: "numeric",
             month: "long",
             day: "numeric",
           })}
         </time>
         <div class="mt-4 text-black">
-          {post.snippet}
+          { post.snippet }
         </div>
       </a>
     </div>

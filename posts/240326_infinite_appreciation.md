@@ -113,7 +113,7 @@ class CuteSineProcessor extends AudioWorkletProcessor {
 
    function draw () {
       const circle_points = []
-      ctx.fillStyle = pointer_down ? `white` : `hotpink`
+      ctx.fillStyle = pointer_down ? document.body.style.backgroundColor : `hotpink`
       ctx.fillRect (0, 0, cnv.width, cnv.height)
 
       const phase_off = frame_count * -1 / (2 ** 12)
