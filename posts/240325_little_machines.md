@@ -6,6 +6,8 @@ disable_html_sanitization: true
 allow_math: true
 ---
 
+<script type="module"> document.body.style.backgroundColor = `white` </script>
+
 ![black and white diagram of twelve phones underneath a sunrise](/240325/little_machines.png)
 
 > *X: Where do you place the proletarian, then?*
