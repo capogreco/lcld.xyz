@@ -1,6 +1,6 @@
 ---
 title: Object Complicity
-published_at: 2024-03-26
+published_at: 2024-04-02
 snippet: with Richard LeMessurier
 disable_html_sanitization: true
 allow_math: true
