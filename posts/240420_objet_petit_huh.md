@@ -1,7 +1,7 @@
 ---
 title: Objet Petit Huh
 published_at: 2024-04-02
-snippet: What we hide in happiness
+snippet: What hides in happiness?
 disable_html_sanitization: true
 allow_math: true
 ---
