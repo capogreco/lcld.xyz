@@ -6,7 +6,7 @@ disable_html_sanitization: true
 allow_math: true
 ---
 
-<div id="emoji">&#128517</div>
+<div id="emoji">&#128524</div>
 
 <canvas id="kite" ></canvas>
 
@@ -40,7 +40,7 @@ allow_math: true
    const snores = []
 
    let snoring = false
-   let snore_i = rand_int (8)
+   let snore_i = rand_int (7)
 
    for (let i = 0; i < 7; i++) {
       const audio = document.createElement (`audio`)
@@ -50,7 +50,7 @@ allow_math: true
          snoring = true
       }
       audio.onended = () => {
-         set_emoji (`&#128517`)
+         set_emoji (`&#128524`)
          snoring = false
          snore_i += rand_int (5) + 1
          snore_i %= snores.length
