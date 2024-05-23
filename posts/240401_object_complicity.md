@@ -6,7 +6,14 @@ disable_html_sanitization: true
 allow_math: true
 ---
 
-This investigation is predicated on the following axioms:
+<img style="background-color: transparent;" src="/240401/cofuv.png" />
+
+.. or what we might gain by understanding certain objects, such as the increasingly ubiquitous comically oversized family utility vehicle, to be various kinds of *musical instrument*.
+
+<!-- ![comically oversized family utility vehicle](/240401/cofuv.png) -->
+
+
+<!-- This investigation is predicated on the following axioms:
 
 1. As concept users, we are constituted by our commitments.
 2. We are constituted as such in relation to a preexisting network of conceptual relations.
@@ -20,4 +27,4 @@ This paper can be understood then, as an investigation into the ways in which th
 
 - the pipe organ / piano / synthesiser
 - the flat-screen television / humurously oversized family 4WD
-- the printing press / mobile phone
+- the printing press / mobile phone -->
