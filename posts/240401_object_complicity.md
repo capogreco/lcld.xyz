@@ -8,16 +8,37 @@ allow_math: true
 
 <img id="cofuv" style="background-color: transparent;" src="/240401/cofuv.png" />
 
+
 <script type="module">
+
+   document.body.style.height = `${ innerHeight }px`
+
+   window.onresize = () => {
+      document.body.style.height = `${ innerHeight }px`
+   }
+
    const img = document.getElementById (`cofuv`)
 
    const a_ctx = new AudioContext ()
+
    const filter = new BiquadFilterNode (a_ctx)
    filter.type = `peaking`
    filter.gain.value = 12
-   filter.frequency.value = 330
+   filter.frequency.value = 440
    filter.Q.value = 1
-   filter.connect (a_ctx.destination)
+
+   const comp = new DynamicsCompressorNode (a_ctx, {
+      threshold: -24,
+      knee: 24,
+      ratio: 18,
+      attack: 0,
+      release: 0.2,
+   })
+
+
+   filter.connect (comp).connect (a_ctx.destination)
+
+
 
    const get_file = async filepath => {
       const response = await fetch (filepath)
@@ -57,7 +78,7 @@ allow_math: true
 
       filter.frequency.cancelScheduledValues (now)
       filter.frequency.setValueAtTime (filter.frequency.value, now)
-      filter.frequency.exponentialRampToValueAtTime (330 * (6 ** x), now + 0.02)
+      filter.frequency.exponentialRampToValueAtTime (440 * (4 ** x), now + 0.02)
 
       is_playing = true
       console.dir (`is playing!`)
@@ -90,7 +111,6 @@ allow_math: true
 
       filter.frequency.cancelScheduledValues (now)
       filter.frequency.setValueAtTime (filter.frequency.value, now)
-      filter.frequency.exponentialRampToValueAtTime (330 * (6 ** x), now + 0.02)
-
+      filter.frequency.exponentialRampToValueAtTime (440 * (4 ** x), now + 0.02)
    }
 </script>
