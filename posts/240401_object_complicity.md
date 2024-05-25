@@ -13,6 +13,7 @@ allow_math: true
 
    document.body.style.height = `${ innerHeight }px`
    document.body.style.userSelect = `none`
+   document.oncontextmenu = () => false
 
    window.onresize = () => {
       document.body.style.height = `${ innerHeight }px`
@@ -40,8 +41,6 @@ allow_math: true
 
    filter.connect (comp).connect (a_ctx.destination)
 
-
-
    const get_file = async filepath => {
       const response = await fetch (filepath)
       const array_buf = await response.arrayBuffer ()
@@ -59,6 +58,8 @@ allow_math: true
 
       e.stopPropagation ()
       e.preventDefault ()
+      e.cancelBubble = true
+      e.returnValue = false
 
       const x = e.clientX * 2 / innerWidth - 1
       const y = e.clientY * -2 / innerHeight + 1
