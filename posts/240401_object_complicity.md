@@ -12,12 +12,14 @@ allow_math: true
 <script type="module">
 
    document.body.style.height = `${ innerHeight }px`
+   document.body.style.userSelect = `none`
 
    window.onresize = () => {
       document.body.style.height = `${ innerHeight }px`
    }
 
    const img = document.getElementById (`cofuv`)
+   img.style.draggable = false
 
    const a_ctx = new AudioContext ()
 
