@@ -14,9 +14,9 @@ allow_math: true
    const a_ctx = new AudioContext ()
    const filter = new BiquadFilterNode (a_ctx)
    filter.type = `peaking`
-   filter.gain.value = 15
-   filter.frequency.value = 1200
-   filter.Q.value = 7
+   filter.gain.value = 12
+   filter.frequency.value = 330
+   filter.Q.value = 1
    filter.connect (a_ctx.destination)
 
    const get_file = async filepath => {
@@ -37,15 +37,27 @@ allow_math: true
       e.stopPropagation ()
       e.preventDefault ()
 
+      const x = e.clientX * 2 / innerWidth - 1
+      const y = e.clientY * -2 / innerHeight + 1
+
       source_node = new AudioBufferSourceNode (a_ctx, {
          buffer: ram_trx_buf
       })
       source_node.connect (filter)
-      // source_node.onended = document.body.onpointerdown
       source_node.loop = true
       source_node.loopStart = 2.656
       source_node.loopEnd = 5.404
       source_node.start ()
+
+      const now = a_ctx.currentTime
+
+      source_node.playbackRate.cancelScheduledValues (now)
+      source_node.playbackRate.setValueAtTime (source_node.playbackRate.value, now)
+      source_node.playbackRate.exponentialRampToValueAtTime (2 ** y, now + 0.02)
+
+      filter.frequency.cancelScheduledValues (now)
+      filter.frequency.setValueAtTime (filter.frequency.value, now)
+      filter.frequency.exponentialRampToValueAtTime (330 * (6 ** x), now + 0.02)
 
       is_playing = true
       console.dir (`is playing!`)
@@ -53,7 +65,7 @@ allow_math: true
       img.style.opacity = 0
    }
 
-   document.body.onpointerdown = e => {
+   document.body.onpointerup = e => {
       if (is_playing == false) return
 
       source_node.stop ()
@@ -78,7 +90,7 @@ allow_math: true
 
       filter.frequency.cancelScheduledValues (now)
       filter.frequency.setValueAtTime (filter.frequency.value, now)
-      filter.frequency.exponentialRampToValueAtTime (1200 * (6 ** x), now + 0.02)
+      filter.frequency.exponentialRampToValueAtTime (330 * (6 ** x), now + 0.02)
 
    }
 </script>
