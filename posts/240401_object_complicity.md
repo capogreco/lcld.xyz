@@ -1,30 +1,84 @@
 ---
-title: Object Complicity
+title: Object Complicity I
 published_at: 2024-04-02
-snippet: with Richard LeMessurier
+snippet: comically oversized family utility vehicle
 disable_html_sanitization: true
 allow_math: true
 ---
 
-<img style="background-color: transparent;" src="/240401/cofuv.png" />
+<img id="cofuv" style="background-color: transparent;" src="/240401/cofuv.png" />
 
-.. or what we might gain by understanding certain objects, such as the increasingly ubiquitous comically oversized family utility vehicle, to be various kinds of *musical instrument*.
+<script type="module">
+   const img = document.getElementById (`cofuv`)
 
-<!-- ![comically oversized family utility vehicle](/240401/cofuv.png) -->
+   const a_ctx = new AudioContext ()
+   const filter = new BiquadFilterNode (a_ctx)
+   filter.type = `peaking`
+   filter.gain.value = 15
+   filter.frequency.value = 1200
+   filter.Q.value = 7
+   filter.connect (a_ctx.destination)
 
+   const get_file = async filepath => {
+      const response = await fetch (filepath)
+      const array_buf = await response.arrayBuffer ()
+      const audio_buf = await a_ctx.decodeAudioData (array_buf)
+      return audio_buf
+   }
 
-<!-- This investigation is predicated on the following axioms:
+   const ram_trx_buf = await get_file (`/240401/ram_trx.mp3`)
+   let source_node
 
-1. As concept users, we are constituted by our commitments.
-2. We are constituted as such in relation to a preexisting network of conceptual relations.
-3. _Aesthetics_ refers to the domain of forces that govern how desire organises material
-4. _Dancing along_ requires one to adopt a primeval sense of correctness.
-5. _Musical_ refers to those aesthetic forces that contain an invitation to _dance along_.
-6. This primeval sense of correctness is constituted by a set of indeterminate, implicit commitments.
-7. Such commitments become both determinate and explicit retroactively, via discourse.
+   let is_playing = false
 
-This paper can be understood then, as an investigation into the ways in which the following objects can be said to be _musical_:
+   img.onpointerdown = e => {
+      if (is_playing == true) return
 
-- the pipe organ / piano / synthesiser
-- the flat-screen television / humurously oversized family 4WD
-- the printing press / mobile phone -->
+      e.stopPropagation ()
+      e.preventDefault ()
+
+      source_node = new AudioBufferSourceNode (a_ctx, {
+         buffer: ram_trx_buf
+      })
+      source_node.connect (filter)
+      // source_node.onended = document.body.onpointerdown
+      source_node.loop = true
+      source_node.loopStart = 2.656
+      source_node.loopEnd = 5.404
+      source_node.start ()
+
+      is_playing = true
+      console.dir (`is playing!`)
+      document.body.style.backgroundColor = `black`
+      img.style.opacity = 0
+   }
+
+   document.body.onpointerdown = e => {
+      if (is_playing == false) return
+
+      source_node.stop ()
+
+      is_playing = false
+      console.dir (`stopping!`)
+      document.body.style.backgroundColor = `hsl(${ Math.random () * 360 }, 100%, 80%)`
+      img.style.opacity = 1
+   }
+
+   document.body.onpointermove = e => {
+      if (!is_playing) return
+
+      const x = e.clientX * 2 / innerWidth - 1
+      const y = e.clientY * -2 / innerHeight + 1
+
+      const now = a_ctx.currentTime
+
+      source_node.playbackRate.cancelScheduledValues (now)
+      source_node.playbackRate.setValueAtTime (source_node.playbackRate.value, now)
+      source_node.playbackRate.exponentialRampToValueAtTime (2 ** y, now + 0.02)
+
+      filter.frequency.cancelScheduledValues (now)
+      filter.frequency.setValueAtTime (filter.frequency.value, now)
+      filter.frequency.exponentialRampToValueAtTime (1200 * (6 ** x), now + 0.02)
+
+   }
+</script>
