@@ -29,7 +29,7 @@ export class Glitcher {
 
    async add_glitch () {
       const i = new Image ()
-      const data = await this.glitchify (this.data, this.cnv.width, 6)
+      const data = await this.glitchify (this.data, this.cnv.width, 12)
       const data_is_good = await this.check_data (data)
       if (data_is_good) {
          i.src = data
