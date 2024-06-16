@@ -79,7 +79,7 @@ export class Glitcher {
       else {
          this.background ()
       }
-      const prob = this.is_glitching ? 0.05 : 0.02
+      const prob = this.is_glitching ? 0.02 : 0.008
       if (Math.random () < prob) {
          this.index = this.rand_int (this.glitch_arr.length)
          this.is_glitching = !this.is_glitching

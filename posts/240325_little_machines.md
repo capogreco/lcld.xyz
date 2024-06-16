@@ -6,15 +6,13 @@ disable_html_sanitization: true
 allow_math: true
 ---
 
-> *MF*: Imagine if you could invent something like that – where **you’d just endlessly distract yourself; at any point in the world and at any time in the world you can be reached by the imperatives of capitalism** ... Imagine an object like that! What would it look like?
->
-> *Student #10*: **A phone?**[^1]
+<img src="/240325/little_machines.png" style="background-color:transparent">
 
-[^1]: Fisher, Mark, Postcapitalist Desire: The Final Lectures, ed. by Matt Colquhoun (Repeater, 2020) *p 134*
+> **It is clear, even if one admits that Marx will disappear for now, that he will reappear one day.**[^1]
 
-<canvas id="phone_cnv"></canvas>
+[^1]: Foucault, Michel, Politics, Philosophy, Culture: Interviews and Other Writings, 1977-1984, Pbk. [ed.] (Routledge, 1990) *p 45*
 
-<br>
+<canvas id="book_cnv"></canvas>
 
 > *X: Where do you place the proletarian, then?*
 >
@@ -32,11 +30,15 @@ allow_math: true
 
 <br>
 
-> **It is clear, even if one admits that Marx will disappear for now, that he will reappear one day.**[^3]
+> *MF*: Imagine if you could invent something like that – where **you’d just endlessly distract yourself; at any point in the world and at any time in the world you can be reached by the imperatives of capitalism** ... Imagine an object like that! What would it look like?
+>
+> *Student #10*: **A phone?**[^3]
 
-[^3]: Foucault, Michel, Politics, Philosophy, Culture: Interviews and Other Writings, 1977-1984, Pbk. [ed.] (Routledge, 1990) *p 45*
+[^3]: Fisher, Mark, Postcapitalist Desire: The Final Lectures, ed. by Matt Colquhoun (Repeater, 2020) *p 134*
 
-<img src="/240325/little_machines.png" style="background-color:transparent">
+<canvas id="phone_cnv"></canvas>
+
+
 
 <script type="module">
    import { Glitcher } from "/scripts/glitcher.js"
@@ -55,10 +57,14 @@ allow_math: true
    const tape_cnv = document.getElementById (`tape_cnv`)
    const tape_ctx = tape_cnv.getContext (`2d`)
 
+   const book_cnv = document.getElementById (`book_cnv`)
+   const book_ctx = book_cnv.getContext (`2d`)
+
    const marx_path = `/240325/karl_marx.png`
 
    const phone_glitcher = await Glitcher.instantiate (phone_ctx, bg, marx_path)
    const tape_glitcher = await Glitcher.instantiate (tape_ctx, bg, marx_path)
+   const book_glitcher = await Glitcher.instantiate (book_ctx, bg, marx_path)
 
    const background = ctx => {
       ctx.fillStyle = document.body.style.backgroundColor
@@ -70,14 +76,19 @@ allow_math: true
 
    const tape = new Image ()
    tape.src = `/240325/cassette.png`
-  
+
+   const book = new Image ()
+   book.src = `/240325/book.png`
 
    const draw_frame = () => {
-      phone_glitcher.draw ()
-      phone_ctx.drawImage (phone, 0, 0, phone_cnv.width, phone_cnv.height)
+      book_glitcher.draw ()
+      book_ctx.drawImage (book, 0, 0, phone_cnv.width, phone_cnv.height)
 
       tape_glitcher.draw ()
       tape_ctx.drawImage (tape, 0, 0, phone_cnv.width, phone_cnv.height)
+
+      phone_glitcher.draw ()
+      phone_ctx.drawImage (phone, 0, 0, phone_cnv.width, phone_cnv.height)
 
       requestAnimationFrame (draw_frame)
    }
