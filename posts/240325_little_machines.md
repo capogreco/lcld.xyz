@@ -49,6 +49,18 @@ allow_math: true
       e.style.borderLeftColor = `black`
    }
 
+   const footnotes = document.getElementsByClassName (`footnotes`)
+   // console.dir ()
+   for (const f of footnotes) {
+      f.style.color = `black`
+      f.style.borderTopColor = `black`
+   }
+
+   const anchortext = document.getElementsByTagName (`a`)
+   for (const a of anchortext) {
+      a.style.color = `black`
+   }
+
    const bg = document.body.style.backgroundColor
 
    const phone_cnv = document.getElementById (`phone_cnv`)
