@@ -9,10 +9,10 @@ allow_math: true
 
 <image id="masters_discourse" src="/240420/masters_discourse.png"></image>
 
-<div style="text-align: center; font-size: xxx-large;" id="emoji">&#129325</div>
+<!-- <div style="text-align: center; font-size: xxx-large;" id="emoji">&#129325</div> -->
 
 <script type="module">
-   
+
    document.getElementById (`masters_discourse`).style.backgroundColor = `transparent`
    const title = document.getElementsByTagName (`h1`).item (0)
    const emoji = document.getElementById (`emoji`)
@@ -21,8 +21,8 @@ allow_math: true
    let frame_count = 0
    const draw_frame = () => {
       const i = frame_count++ % modes[0].length
-      title.innerText = `Objet Petit Huh${ modes[0][i] }`
-      emoji.innerHTML = modes[1][i]
+      title.innerHTML = `Objet Petit Huh${ modes[0][i] } ${ modes[1][i] }`
+      // emoji.innerHTML = modes[1][i]
       setTimeout (draw_frame, 2000)
    }
 
