@@ -50,7 +50,7 @@ allow_math: true
    }
 
    const footnotes = document.getElementsByClassName (`footnotes`)
-   // console.dir ()
+   
    for (const f of footnotes) {
       f.style.color = `black`
       f.style.borderTopColor = `black`
