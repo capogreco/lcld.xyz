@@ -1,15 +1,16 @@
 export class Glitcher {
-   constructor (ctx, bg_col) {
+   constructor (ctx, bg_col, speed) {
       this.ctx = ctx
       this.cnv = ctx.canvas
       this.bg_col = bg_col
+      this.speed = speed
       this.glitch_arr = []
       this.is_glitching = false
       this.index = 0
    }
 
-   static async instantiate (ctx, bg_col, img_path) {
-      const g = new Glitcher (ctx, bg_col)
+   static async instantiate (ctx, bg_col, speed, img_path) {
+      const g = new Glitcher (ctx, bg_col, speed)
       const i = new Image ()
       i.src = img_path
       await i.decode ()
@@ -79,7 +80,7 @@ export class Glitcher {
       else {
          this.background ()
       }
-      const prob = this.is_glitching ? 0.02 : 0.004
+      const prob = this.is_glitching ? 0.005 : 0.01 * this.speed
       if (Math.random () < prob) {
          this.index = this.rand_int (this.glitch_arr.length)
          this.is_glitching = !this.is_glitching

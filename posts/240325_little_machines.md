@@ -6,13 +6,15 @@ disable_html_sanitization: true
 allow_math: true
 ---
 
-<img src="/240325/little_machines.png" style="background-color:transparent">
+<canvas id="phone_cnv"></canvas>
 
-> **It is clear, even if one admits that Marx will disappear for now, that he will reappear one day.**[^1]
+> *MF*: Imagine if you could invent something like that – where **you’d just endlessly distract yourself; at any point in the world and at any time in the world you can be reached by the imperatives of capitalism** ... Imagine an object like that! What would it look like?
+>
+> *Student #10*: **A phone?**[^3]
 
-[^1]: Foucault, Michel, Politics, Philosophy, Culture: Interviews and Other Writings, 1977-1984, Pbk. [ed.] (Routledge, 1990) *p 45*
+[^3]: Fisher, Mark, Postcapitalist Desire: The Final Lectures, ed. by Matt Colquhoun (Repeater, 2020) *p 134*
 
-<canvas id="book_cnv"></canvas>
+<canvas id="tape_cnv"></canvas>
 
 > *X: Where do you place the proletarian, then?*
 >
@@ -26,18 +28,17 @@ allow_math: true
 
 [^2]: Lacan, Jacques, The Other Side of Psychoanalysis: The Seminar of Jacques Lacan, Book XVII, trans. by Russell Grigg, 1st edition (W. W. Norton & Company, Inc., 2007) *p 149* 
 
-<canvas id="tape_cnv"></canvas>
+<canvas id="book_cnv"></canvas>
 
 <br>
 
-> *MF*: Imagine if you could invent something like that – where **you’d just endlessly distract yourself; at any point in the world and at any time in the world you can be reached by the imperatives of capitalism** ... Imagine an object like that! What would it look like?
->
-> *Student #10*: **A phone?**[^3]
 
-[^3]: Fisher, Mark, Postcapitalist Desire: The Final Lectures, ed. by Matt Colquhoun (Repeater, 2020) *p 134*
+> **It is clear, even if one admits that Marx will disappear for now, that he will reappear one day.**[^1]
 
-<canvas id="phone_cnv"></canvas>
+[^1]: Foucault, Michel, Politics, Philosophy, Culture: Interviews and Other Writings, 1977-1984, Pbk. [ed.] (Routledge, 1990) *p 45*
 
+
+<img src="/240325/little_machines.png" style="background-color:transparent">
 
 
 <script type="module">
@@ -50,7 +51,7 @@ allow_math: true
    }
 
    const footnotes = document.getElementsByClassName (`footnotes`)
-   
+
    for (const f of footnotes) {
       f.style.color = `black`
       f.style.borderTopColor = `black`
@@ -74,9 +75,9 @@ allow_math: true
 
    const marx_path = `/240325/karl_marx.png`
 
-   const phone_glitcher = await Glitcher.instantiate (phone_ctx, bg, marx_path)
-   const tape_glitcher = await Glitcher.instantiate (tape_ctx, bg, marx_path)
-   const book_glitcher = await Glitcher.instantiate (book_ctx, bg, marx_path)
+   const book_glitcher = await Glitcher.instantiate (book_ctx, bg, 2, marx_path)
+   const tape_glitcher = await Glitcher.instantiate (tape_ctx, bg, 4, marx_path)
+   const phone_glitcher = await Glitcher.instantiate (phone_ctx, bg, 8, marx_path)
 
    const background = ctx => {
       ctx.fillStyle = document.body.style.backgroundColor
@@ -90,7 +91,7 @@ allow_math: true
    tape.src = `/240325/cassette.png`
 
    const book = new Image ()
-   book.src = `/240325/book.png`
+   book.src = `/240325/books.png`
 
    const draw_frame = () => {
       book_glitcher.draw ()
