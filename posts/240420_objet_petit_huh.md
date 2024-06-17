@@ -19,9 +19,13 @@ allow_math: true
 
    const modes = [ `.?!`, [ `&#128562`, `&#129325`, `&#128544` ] ]
    let frame_count = 0
+
    const draw_frame = () => {
       const i = frame_count++ % modes[0].length
-      title.innerHTML = `Objet Petit Huh${ modes[0][i] } ${ modes[1][i] }`
+      title.innerHTML = `<div style="display:table; width:100%">
+            <div style="float:left; width:50%">Objet Petit Huh${ modes[0][i] }</div>
+            <div style="float:left; width:50%">${ modes[1][i] }</div>
+         </div>`
       // emoji.innerHTML = modes[1][i]
       setTimeout (draw_frame, 2000)
    }
