@@ -1,7 +1,7 @@
 ---
 title: Cultivating Quiet
-published_at: 2024-04-02
-snippet: zzzZZZ
+published_at: 2024-06-18
+snippet: Silence as emanation.
 disable_html_sanitization: true
 allow_math: false
 ---
