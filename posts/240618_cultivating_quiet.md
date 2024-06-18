@@ -64,8 +64,6 @@ allow_math: false
 
    window.onresize = resize_canvas
 
-   let is_pressed = false
-
    class Squuare {
       constructor (ctx) {
          this.ctx         = ctx
@@ -236,7 +234,9 @@ allow_math: false
          x: perlin.noise (offset.x + t, offset.y) * 2 - 1,
          y: perlin.noise (offset.x, offset.y + t) * 2 - 1
       }
-      squuare.update_pos (new_pos)
+      if (!squuare.is_pressed) {
+         squuare.update_pos (new_pos)
+      }
       squuare.draw ()
       requestAnimationFrame (draw_frame)
    }
