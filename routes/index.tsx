@@ -37,7 +37,7 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
         </div>
 
       </main>
-      <div class="fixed text-center text-white top-0 right-0">
+      <div class="fixed text-center text-white top-0 right-2">
           → homage to <a href="https://fallingfalling.com">Falling Falling</a>, 
           by <a href="https://www.newrafael.com/info/">Rafaël Rozendaal</a>
       </div>
