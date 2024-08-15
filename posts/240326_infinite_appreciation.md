@@ -1,7 +1,7 @@
 ---
 title: Infinite Appreciation
 published_at: 2024-03-26
-snippet: Beauty man appreciates science.
+snippet: beauty man appreciates science
 disable_html_sanitization: true
 ---
 

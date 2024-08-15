@@ -1,7 +1,7 @@
 ---
 title: Little Machines
 published_at: 2024-03-25
-snippet: .. and party invites.
+snippet: ... and party invites
 disable_html_sanitization: true
 allow_math: true
 ---
