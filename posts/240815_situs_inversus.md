@@ -1,7 +1,7 @@
 ---
 title: Situs Inversus
 published_at: 2024-08-15
-snippet: cross my heart and hope to die
+snippet: being on the wrong side
 disable_html_sanitization: true
 allow_math: false
 ---
