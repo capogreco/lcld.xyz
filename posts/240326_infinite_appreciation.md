@@ -222,7 +222,7 @@ class CuteSineProcessor extends AudioWorkletProcessor {
       const phase = point_phase (e)
       prepare_params ([ graph.amp, graph.bright ], now)
 
-      graph.amp.linearRampToValueAtTime (0.2, now + 0.02)
+      graph.amp.linearRampToValueAtTime (0.8, now + 0.02)
 
       const inverted_y = 1 - phase.y
       graph.bright.linearRampToValueAtTime (inverted_y, now + 0.1)
