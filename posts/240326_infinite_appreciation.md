@@ -218,7 +218,7 @@ class CuteSineProcessor extends AudioWorkletProcessor {
          await init_audio ()
       }
 
-      const now = audio_context.currentTime      
+      const now = audio_context.currentTime
       const phase = point_phase (e)
       prepare_params ([ graph.amp, graph.bright ], now)
 
