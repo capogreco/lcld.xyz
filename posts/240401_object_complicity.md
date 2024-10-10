@@ -1,5 +1,5 @@
 ---
-title: Object Complicity I
+title: Object Complicity
 published_at: 2024-04-02
 snippet: comically oversized family utility vehicle
 disable_html_sanitization: true
@@ -7,9 +7,6 @@ allow_math: true
 ---
 
 <img id="cofuv" style="background-color: transparent;" src="/240401/cofuv.png" />
-
-
-
 
 <script type="module">
    document.body.style.userSelect = `none`
