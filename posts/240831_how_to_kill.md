@@ -1,7 +1,7 @@
 ---
 title: How to Kill a Zombie
 published_at: 2024-08-31
-snippet: step-by-step instructions, with examples
+snippet: an illustrated guide
 disable_html_sanitization: true
 allow_math: false
 ---

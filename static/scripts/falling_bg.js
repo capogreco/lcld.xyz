@@ -1,7 +1,8 @@
 import { Faller } from './faller.js'
 
-let bg_h = Math.random () * 360
-document.body.style.backgroundColor = `hsl(${ bg_h }, 100%, 66%)`
+let bg_col = `white`
+// let bg_h = Math.random () * 360
+document.body.style.backgroundColor = bg_col
 
 const cnv  = document.createElement (`canvas`)
 
@@ -27,10 +28,12 @@ let frame_count = 0
 
 const fallers = []
 
-fallers.push (new Faller (cnv, ctx, Math.random () * 360))
+fallers.push (new Faller (cnv, ctx, bg_col))
+bg_col = `hsl(${ Math.random () * 360 }, 100%, 66%)`
 
 const draw_frame = () => {
-    ctx.fillStyle = `hsl(${ bg_h }, 100%, 66%)`
+    // ctx.fillStyle = `hsl(${ bg_h }, 100%, 66%)`
+    ctx.fillStyle = bg_col
     ctx.fillRect (0, 0, cnv.width, cnv.height)
 
     const redundant = []
@@ -43,8 +46,9 @@ const draw_frame = () => {
 
     redundant.forEach (i => {
         fallers.splice (i, 1)
-        fallers.push (new Faller (cnv, ctx, bg_h))
-        bg_h = Math.random () * 360
+        fallers.push (new Faller (cnv, ctx, bg_col))
+        // bg_h = Math.random () * 360
+        bg_col = `hsl(${ Math.random () * 360 }, 100%, 66%)`
     })
 
     frame_count++

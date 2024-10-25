@@ -1,9 +1,10 @@
 export class Faller {
-   constructor (canvas, context, h) {
+   constructor (canvas, context, col) {
       this.cnv = canvas
       this.ctx = context
 
-      this.hue = h
+      // this.hue = h
+      this.col = col
 
       const { width, height } = this.cnv
 
@@ -42,7 +43,8 @@ export class Faller {
       this.ctx.closePath ()
 
       // this.ctx.fillStyle = `hsl(${ this.hue }, 100%, ${ 66 - ((this.phase ** 18) * 66) }%)`
-      this.ctx.fillStyle = `hsl(${ this.hue }, 100%, 66%)`
+      // this.ctx.fillStyle = `hsl(${ this.hue }, 100%, 66%)`
+      this.ctx.fillStyle = this.col
       this.ctx.fill ()
 
       this.phase += 0.001
