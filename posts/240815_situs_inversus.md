@@ -12,7 +12,7 @@ Jack Muller was my poppa. He had the titular condition.
 
 They found an ambidextrous heart surgeon for his triple-bypass.
 
-Several years later, Shane Warne bowled Graham Gooch around the legs.
+Several years later, Shane Warne bowled Graham Gooch around his legs.
 
 Soon after, Poppa taught me how to bowl a leg break. 
 
