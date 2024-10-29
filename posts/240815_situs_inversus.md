@@ -8,15 +8,19 @@ allow_math: false
 
 <img style="background: transparent" src="240815/situs_inversus.png" />
 
-Had he not been afflicted with the titular condition, I may never have known him.  
+Jack Muller was my poppa. He had the titular condition.
 
-Jack Muller (my grandfather)'s triple-bypass was executed by a renowned (ambidextrous) heart surgeon.
+They found an ambidextrous heart surgeon for his triple-bypass.
 
-We watched Shane Warne bowl Mike Gatting around the legs.  
+Several years later, Shane Warne bowled Graham Gooch around the legs.
 
-He taught me how to bowl a leg-break and a wrong-un.
+Soon after, Poppa taught me how to bowl a leg break. 
 
-I enjoyed bowling wrong-uns in school as hardly anyone else could bowl them properly.
+And then, how to bowl a wrong'un.
 
-In each case, the master's discourse emerges from where difference begins.
+<!-- Can you bowl a wrong'un? -->
+
+In each case, the master's discourse emerges where difference begins.
+
+<!-- After all, one never fully knows now does one now does one now does one -->
 
