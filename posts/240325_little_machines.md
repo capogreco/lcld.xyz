@@ -12,7 +12,7 @@ allow_math: true
 >
 > *Student #10*: **A phone?**[^3]
 
-[^3]: Fisher, Mark, Postcapitalist Desire: The Final Lectures, ed. by Matt Colquhoun (Repeater, 2020) *p 134*
+[^3]: Fisher, Mark, *Postcapitalist Desire: The Final Lectures*, ed. by Matt Colquhoun (Repeater, 2020) p 134
 
 <canvas id="tape_cnv"></canvas>
 
@@ -26,7 +26,7 @@ allow_math: true
 >
 > What do you do with all I tell you?  **You record it on a little machine, and afterward, you give parties which you hand out invitations to - that's a Lacan tape for you.**[^2]
 
-[^2]: Lacan, Jacques, The Other Side of Psychoanalysis: The Seminar of Jacques Lacan, Book XVII, trans. by Russell Grigg, 1st edition (W. W. Norton & Company, Inc., 2007) *p 149* 
+[^2]: Lacan, Jacques, *The Other Side of Psychoanalysis: The Seminar of Jacques Lacan, Book XVII*, trans. by Russell Grigg, 1st edition (W. W. Norton & Company, Inc., 2007) p 149 
 
 <canvas id="book_cnv"></canvas>
 
@@ -35,7 +35,7 @@ allow_math: true
 
 > **It is clear, even if one admits that Marx will disappear for now, that he will reappear one day.**[^1]
 
-[^1]: Foucault, Michel, Politics, Philosophy, Culture: Interviews and Other Writings, 1977-1984, Pbk. [ed.] (Routledge, 1990) *p 45*
+[^1]: Foucault, Michel, *Politics, Philosophy, Culture: Interviews and Other Writings*, 1977-1984, Pbk. [ed.] (Routledge, 1990) p 45
 
 
 <img src="/240325/little_machines.png" style="background-color:transparent">
@@ -94,14 +94,26 @@ allow_math: true
    book.src = `/240325/books.png`
 
    const draw_frame = () => {
-      book_glitcher.draw ()
-      book_ctx.drawImage (book, 0, 0, phone_cnv.width, phone_cnv.height)
+
+      phone_glitcher.draw ()
+      const { data } = phone_ctx.getImageData (0, 0, phone_cnv.width, phone_cnv.height)
+      const i_buf = data.map ((v, i) => {
+         return i % 4 != 3 ? 255 - v : 255
+      })
+      console.dir (i_buf)
+      const i_data = phone_ctx.createImageData (phone_cnv.width, phone_cnv.height)
+      i_data.data.set (i_buf)
+      const inv = new Image (phone_cnv.width, phone_cnv.height)
+      inv.src = i_data
+      // console.dir (inv)
+      phone_ctx.drawImage (phone, 0, 0, phone_cnv.width, phone_cnv.height)
+      phone_ctx.drawImage (inv, 0, 0, phone_cnv.width, phone_cnv.height)
 
       tape_glitcher.draw ()
       tape_ctx.drawImage (tape, 0, 0, phone_cnv.width, phone_cnv.height)
 
-      phone_glitcher.draw ()
-      phone_ctx.drawImage (phone, 0, 0, phone_cnv.width, phone_cnv.height)
+      book_glitcher.draw ()
+      book_ctx.drawImage (book, 0, 0, phone_cnv.width, phone_cnv.height)
 
       requestAnimationFrame (draw_frame)
    }

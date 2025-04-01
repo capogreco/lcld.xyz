@@ -326,5 +326,7 @@ class CuteSineProcessor extends AudioWorkletProcessor {
       pointer_down = false
    }
 
+   document.body.onkeydown = e => console.log (e)
+
 </script>
 

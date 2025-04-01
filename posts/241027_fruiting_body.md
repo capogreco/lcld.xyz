@@ -43,6 +43,7 @@ allow_math: false
 <button class="button-35" role="button" id="play_button" >PLAY</button>
 
 <script>
+
    const a = {
       is_init: false,
       ctx: new AudioContext ()
@@ -50,13 +51,16 @@ allow_math: false
 
    a.ctx.suspend ()
 
-   console.dir (a.ctx.state)
-
-   const play_btn = document.getElementById (`play_button`)
-   play_btn.onpointerdown = async () => {
+   const init_audio = () = {
       await a.ctx.resume ()
       a.is_init = true
       console.dir (a.ctx.state)
+   }
+
+   const play_btn = document.getElementById (`play_button`)
+
+   play_btn.onpointerdown = async () => {
+      if (!a.is_init) init_audio ()
    }
 
 </script>
