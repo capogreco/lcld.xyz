@@ -47,13 +47,13 @@ export default function PostPage(props: PageProps<Post>) {
         </time>
         <a href="/" class="block mt-4 text-black">← Back to home</a>
         <div
-          class="mt-8 markdown-body"
+          class="mt-8 mb-48 markdown-body"
           dangerouslySetInnerHTML={{ __html: render(post.content, {
             disableHtmlSanitization: post.disableHtmlSanitization,
             allowMath: post.allowMath,
           }) }}
         />
-      </main>
+        </main>
     </>
   );
 }
