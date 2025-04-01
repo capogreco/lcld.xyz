@@ -47,8 +47,8 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
 function PostCard(props: { post: Post }) {
   const { post } = props;
   return (
-    <div class="py-8 border(t black)">
-      <a class="sm:col-span-2" href={`/${post.slug}`}>
+    <div class="py-8">
+      <a class="sm:col-span-2" href={`/${ post.slug }`}>
         <h3 class="text(3xl black) font-bold">
           {post.title}
         </h3>
